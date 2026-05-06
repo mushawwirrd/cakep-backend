@@ -10,7 +10,11 @@ export default class CustomerController {
         let { username, email, password, phone } = req.body
         password = bcrypt.hashSync(password, 5)
 
-        const customer = await Customer.create({username, email, password, phone})
+        if (!username || !phone ) {
+            return res.status(400).json({ message: "Data tidak boleh kosong" })
+        }
+
+        const customer = await Customer.create({ username, email, password, phone })
 
         return res.status(201).json({ message: "Berhasil terdaftar", data: customer })
     }

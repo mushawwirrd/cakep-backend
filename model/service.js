@@ -6,7 +6,11 @@ const Service = connect.define("Service", {
     price: DataTypes.INTEGER,
     duration: DataTypes.INTEGER,
     status: DataTypes.STRING,
-    status: DataTypes.STRING
+
+    originalName: DataTypes.STRING,
+    filePath: DataTypes.STRING,
+    mimeType: DataTypes.STRING,
+
 
 }, {
     tableName: "service",

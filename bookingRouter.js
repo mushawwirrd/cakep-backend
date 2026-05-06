@@ -1,7 +1,7 @@
 import express from "express"
 import authenticate from "./middleware/authenticate.js"
 import BookingController from "./controller/bookingController.js"
-import { adminOnly } from "./middleware/role.js"
+import { adminOnly, ownerOnly } from "./middleware/role.js"
 
 const bookingRouter = express.Router()
 

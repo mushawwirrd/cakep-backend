@@ -29,6 +29,8 @@ app.use("/transaction", transactionRouter)
 app.use("/crm", crmRouter)
 app.use("/dashboard", dashboardRouter)
 
+app.use("/uploads", express.static("uploads"))
+
 const PORT = process.env.PORT
 app.listen(PORT, () => console.log(`App is running on PORT ${PORT}`))
 

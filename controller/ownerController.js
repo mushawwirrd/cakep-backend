@@ -9,6 +9,10 @@ export default class OwnerController {
         let { username, email, password } = req.body
         password = bcrypt.hashSync(password, 5)
 
+        if(!username || !email || !password){
+            return res.status(400).json({message: "Data tidak boleh kosong"})
+        }
+
         const owner = await Owner.create({ username, email, password })
 
         return res.status(201).json({ message: "Selamat, anda berhasil terdaftar", data: owner })
