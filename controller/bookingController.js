@@ -44,7 +44,7 @@ export default class BookingController {
                 service_id,
                 customer_id,
                 source: "online"
-            })
+            }, { transaction: t })
 
             await t.commit()
             return res.status(201).json({ message: "Booking online berhasil dibuat", book: onlineBook })
